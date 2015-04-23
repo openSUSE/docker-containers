@@ -35,6 +35,7 @@
     <source path="http://download.opensuse.org/update/tumbleweed/"/>
   </repository>
   <packages type="image">
+    <package name="ca-certificates"/>
     <package name="coreutils"/>
     <package name="iputils"/>
   </packages>

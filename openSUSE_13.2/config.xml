@@ -38,6 +38,7 @@
     <source path="http://download.opensuse.org/update/13.2-non-oss/"/>
   </repository>
   <packages type="image">
+    <package name="ca-certificates"/>
     <package name="coreutils"/>
     <package name="iputils"/>
   </packages>
