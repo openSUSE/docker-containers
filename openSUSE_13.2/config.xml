@@ -41,6 +41,7 @@
     <package name="ca-certificates"/>
     <package name="coreutils"/>
     <package name="iputils"/>
+    <package name="openSUSE-build-key"/>
   </packages>
   <packages type="bootstrap">
     <package name="filesystem"/>

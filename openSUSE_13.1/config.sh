@@ -37,6 +37,11 @@ suseSetupProduct
 suseConfig
 
 #======================================
+# Import repositories' keys
+#--------------------------------------
+suseImportBuildKey
+
+#======================================
 # Activate services
 #--------------------------------------
 suseActivateDefaultServices
