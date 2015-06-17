@@ -13,4 +13,4 @@ clean ::
 	sudo rm -f $(BUILD_DIR).log
 
 import ::
-	docker import - opensuse:13.1 < $(OUTPUT_DIR)/suse-13.1-docker-guest-docker.x86_64-1.0.0.tbz
+	docker import - opensuse:13.1 < $(OUTPUT_DIR)/suse-13.1-docker-guest-docker.x86_64-1.0.0.tar.xz
