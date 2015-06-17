@@ -39,6 +39,7 @@
     <package name="coreutils"/>
     <package name="iputils"/>
     <package name="openSUSE-build-key"/>
+    <package name="openSUSE-release"/>
   </packages>
   <packages type="bootstrap">
     <package name="filesystem"/>
