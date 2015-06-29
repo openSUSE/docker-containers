@@ -25,14 +25,8 @@
   <users group="root">
     <user password="linux" pwdformat="plain" home="/root" name="root"/>
   </users>
-  <repository type="yast2" imageinclude="true" alias="repo-oss" >
-    <source path="opensuse://tumbleweed/repo/oss/"/>
-  </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss">
-    <source path="opensuse://tumbleweed/repo/non-oss/"/>
-  </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-update">
-    <source path="http://download.opensuse.org/update/tumbleweed/"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-oss" >
+    <source path="obs://openSUSE:Factory/snapshot"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
@@ -40,10 +34,15 @@
     <package name="iputils"/>
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
+    <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
     <package name="filesystem"/>
     <package name="glibc-locale"/>
-    <package name="module-init-tools"/>
+    <package name="pkg-config"/>
+    <package name="dracut"/>
+    <package name="sg3_utils"/>
+    <package name="acl"/>
+    <package name="elfutils"/>
   </packages>
 </image>
