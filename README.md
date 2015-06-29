@@ -13,39 +13,22 @@ All the images derived from the official ones are stored under the
 
 ## Official openSUSE images:
 
-  * [KIWI](https://github.com/openSUSE/kiwi) version 5.06.87 or higher is required.
-  * The `make` package.
-  * The `sudo` package.
-  * The `docker` package (optional).
+These images are not supposed to be built locally. The build is going to happen
+inside of the [Open Build Service](http://openbuildservice.org/).
+
+For each base image there's a dedicated OBS subproject under the
+[Virtualization:containers:images](https://build.opensuse.org/project/subprojects/Virtualization:containers:images)
+project.
+
+The build results are automatically aggregated inside of
+[this repository](http://download.opensuse.org/repositories/Virtualization:/containers/images/).
+
+Unfortunately it is not possible to use the OBS service hook for OBS because
+this repository contains the source code of more than 1 OBS project.
 
 ## Derived images
 
   * The `docker` package.
-
-#Build instructions
-
-## Official openSUSE images
-
-Each directory contains a Makefile. To build the image use the following
-command:
-
-```
-make build
-```
-
-**Note well:** the root password is going to be prompted since KIWI requires
-administrator privileges.
-
-To import the final image use the following command:
-
-```
-make import
-```
-
-This assumes Docker is running and the user executing the make command is a
-member of the `docker` group.
-
-## Derived images
 
 Each directory contains a Dockerfile. To build the image use the following
 commands:
