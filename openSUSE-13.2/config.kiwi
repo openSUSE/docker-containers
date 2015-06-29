@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.1" name="suse-13.2-docker-guest">
+<image schemaversion="6.1" name="openSUSE-13.2-docker-guest">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
@@ -23,19 +23,19 @@
     <timezone>US/Eastern</timezone>
   </preferences>
   <users group="root">
-    <user password="$1$wYJUgpM5$RXMMeASDc035eX.NbYWFl0" home="/root" name="root"/>
+    <user password="linux" pwdformat="plain" home="/root" name="root"/>
   </users>
-  <repository type="yast2" imageinclude="true" alias="repo-oss" >
-    <source path="opensuse://13.2/repo/oss/"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-oss" >
+    <source path="obs://openSUSE:13.2/standard"/>
   </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss">
-    <source path="opensuse://13.2/repo/non-oss/"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-oss-updates" >
+    <source path="obs://openSUSE:13.2:Update/standard"/>
   </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-update">
-    <source path="http://download.opensuse.org/update/13.2/"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss" >
+    <source path="obs://openSUSE:13.2:NonFree/standard"/>
   </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-update-non-oss">
-    <source path="http://download.opensuse.org/update/13.2-non-oss/"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss-update" >
+    <source path="obs://openSUSE:13.2:NonFree:Update/standard"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
@@ -43,10 +43,16 @@
     <package name="iputils"/>
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
+    <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
+    <package name="fipscheck"/>
     <package name="filesystem"/>
     <package name="glibc-locale"/>
-    <package name="module-init-tools"/>
+    <package name="pkg-config"/>
+    <package name="dracut"/>
+    <package name="sg3_utils"/>
+    <package name="acl"/>
+    <package name="elfutils"/>
   </packages>
 </image>
