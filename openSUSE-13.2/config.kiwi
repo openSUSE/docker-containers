@@ -54,5 +54,6 @@
     <package name="sg3_utils"/>
     <package name="acl"/>
     <package name="elfutils"/>
+    <package name="ncurses-utils"/>
   </packages>
 </image>
