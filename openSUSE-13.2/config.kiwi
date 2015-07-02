@@ -25,17 +25,17 @@
   <users group="root">
     <user password="linux" pwdformat="plain" home="/root" name="root"/>
   </users>
-  <repository type="rpm-md" imageinclude="true" alias="repo-oss" >
-    <source path="obs://openSUSE:13.2/standard"/>
-  </repository>
   <repository type="rpm-md" imageinclude="true" alias="repo-oss-updates" >
     <source path="obs://openSUSE:13.2:Update/standard"/>
   </repository>
-  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss" >
-    <source path="obs://openSUSE:13.2:NonFree/standard"/>
+  <repository type="rpm-md" imageinclude="true" alias="repo-oss" >
+    <source path="obs://openSUSE:13.2/standard"/>
   </repository>
   <repository type="rpm-md" imageinclude="true" alias="repo-non-oss-update" >
     <source path="obs://openSUSE:13.2:NonFree:Update/standard"/>
+  </repository>
+  <repository type="rpm-md" imageinclude="true" alias="repo-non-oss" >
+    <source path="obs://openSUSE:13.2:NonFree/standard"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
