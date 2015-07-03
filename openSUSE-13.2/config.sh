@@ -36,6 +36,13 @@ suseSetupProduct
 #--------------------------------------
 suseConfig
 
+#=======================================
+# Add repositories
+#---------------------------------------
+
+zypper -n --gpg-auto-import-keys ar -r http://download.opensuse.org/distribution/13.2/repo/oss/ OSS
+zypper -n --gpg-auto-import-keys ar -r http://download.opensuse.org/update/13.2/ OSS-Updates
+
 #======================================
 # Import repositories' keys
 #--------------------------------------
