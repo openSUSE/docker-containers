@@ -1,0 +1,8 @@
+[oss-update]
+name=OSS Update
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/update/13.2/
+path=/
+type=rpm-md
+keeppackages=0
