@@ -25,10 +25,10 @@
   <users group="root">
     <user password="linux" pwdformat="plain" home="/root" name="root"/>
   </users>
-  <repository type="rpm-md" alias="repo-oss-updates" >
+  <repository type="rpm-md">
     <source path="obs://openSUSE:13.2:Update/standard"/>
   </repository>
-  <repository type="rpm-md" alias="repo-oss" >
+  <repository type="rpm-md">
     <source path="obs://openSUSE:13.2/standard"/>
   </repository>
   <packages type="image">
