@@ -42,13 +42,14 @@ suseConfig
 suseImportBuildKey
 
 #======================================
-# Activate services
-#--------------------------------------
-suseActivateDefaultServices
-
-#======================================
 # Umount kernel filesystems
 #--------------------------------------
 baseCleanMount
+
+#======================================
+# Remove locale files
+#--------------------------------------
+(cd /usr/share/locale && find -name '*.mo' | xargs rm)
+
 
 exit 0

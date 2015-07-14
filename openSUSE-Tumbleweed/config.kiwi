@@ -17,6 +17,7 @@
     <packagemanager>zypper</packagemanager>
     <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
     <locale>en_US</locale>
     <keytable>us.map.gz</keytable>
     <hwclock>utc</hwclock>
@@ -43,12 +44,28 @@
     <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
+    <package name="acl"/>
+    <package name="dracut"/>
+    <package name="elfutils"/>
     <package name="filesystem"/>
     <package name="glibc-locale"/>
     <package name="pkg-config"/>
-    <package name="dracut"/>
     <package name="sg3_utils"/>
-    <package name="acl"/>
-    <package name="elfutils"/>
+  </packages>
+  <packages type="delete">
+    <package name="aaa_base"/>
+    <package name="dbus-1"/>
+    <package name="dracut"/>
+    <package name="fipscheck"/>
+    <package name="glibc-locale"/>
+    <package name="kbd"/>
+    <package name="kmod"/>
+    <package name="ncurses-utils"/>
+    <package name="pinentry"/>
+    <package name="pkg-config"/>
+    <package name="sg3_utils"/>
+    <package name="systemd"/>
+    <package name="systemd-sysvinit"/>
+    <package name="udev"/>
   </packages>
 </image>
