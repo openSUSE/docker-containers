@@ -13,7 +13,7 @@
         <vmnic interface="eth0" mode="veth"/>
       </machine>
     </type>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>true</rpm-force>
