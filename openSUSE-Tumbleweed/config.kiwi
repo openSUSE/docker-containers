@@ -64,7 +64,6 @@
     <package name="pinentry"/>
     <package name="pkg-config"/>
     <package name="sg3_utils"/>
-    <package name="systemd"/>
     <package name="systemd-sysvinit"/>
     <package name="udev"/>
   </packages>
