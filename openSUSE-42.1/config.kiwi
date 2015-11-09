@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.1" name="openSUSE-42.1-docker-guest">
+  <description type="system">
+    <author>Flavio Castelli</author>
+    <contact>fcastelli@suse.com</contact>
+    <specification>openSUSE 42.1 docker container</specification>
+  </description>
+  <preferences>
+    <type image="docker" container="os132">
+      <machine>
+        <vmdisk/>
+        <vmnic interface="eth0" mode="veth"/>
+      </machine>
+    </type>
+    <version>1.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+    <timezone>US/Eastern</timezone>
+  </preferences>
+  <users group="root">
+    <user password="linux" pwdformat="plain" home="/root" name="root"/>
+  </users>
+  <repository type="rpm-md">
+    <source path="obs://openSUSE:Leap:42.1:Update/standard"/>
+  </repository>
+  <repository type="rpm-md">
+    <source path="obs://openSUSE:Leap:42.1/standard"/>
+  </repository>
+  <packages type="image">
+    <package name="ca-certificates"/>
+    <package name="coreutils"/>
+    <package name="iputils"/>
+    <package name="openSUSE-build-key"/>
+    <package name="openSUSE-release"/>
+  </packages>
+  <packages type="bootstrap">
+    <package name="acl"/>
+    <package name="dracut"/>
+    <package name="elfutils"/>
+    <package name="filesystem"/>
+    <package name="fipscheck"/>
+    <package name="glibc-locale"/>
+    <package name="ncurses-utils"/>
+    <package name="pkg-config"/>
+    <package name="sg3_utils"/>
+  </packages>
+    <packages type="delete">
+    <package name="aaa_base"/>
+    <package name="dbus-1"/>
+    <package name="dracut"/>
+    <package name="fipscheck"/>
+    <package name="glibc-locale"/>
+    <package name="kbd"/>
+    <package name="kmod"/>
+    <package name="ncurses-utils"/>
+    <package name="pinentry"/>
+    <package name="pkg-config"/>
+    <package name="sg3_utils"/>
+    <package name="systemd-sysvinit"/>
+    <package name="udev"/>
+  </packages>
+</image>
