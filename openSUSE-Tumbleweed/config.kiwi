@@ -51,6 +51,7 @@
     <package name="glibc-locale"/>
     <package name="pkg-config"/>
     <package name="sg3_utils"/>
+    <package name="ncurses-utils"/>
   </packages>
   <packages type="delete">
     <package name="aaa_base"/>
