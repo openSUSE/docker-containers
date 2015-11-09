@@ -38,6 +38,7 @@
     <package name="iputils"/>
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
+    <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
     <package name="acl"/>
