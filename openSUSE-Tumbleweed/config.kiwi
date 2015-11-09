@@ -44,6 +44,7 @@
     <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
+    <package name="ncurses-utils"/>
     <package name="acl"/>
     <package name="dracut"/>
     <package name="elfutils"/>
@@ -51,7 +52,6 @@
     <package name="glibc-locale"/>
     <package name="pkg-config"/>
     <package name="sg3_utils"/>
-    <package name="ncurses-utils"/>
   </packages>
   <packages type="delete">
     <package name="aaa_base"/>
@@ -65,6 +65,8 @@
     <package name="pinentry"/>
     <package name="pkg-config"/>
     <package name="sg3_utils"/>
+    <package name="systemd"/>
+    <package name="systemd-presets-branding-openSUSE"/>
     <package name="systemd-sysvinit"/>
     <package name="udev"/>
   </packages>
