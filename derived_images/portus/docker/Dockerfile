@@ -1,7 +1,7 @@
 FROM opensuse/amd64:42.1
 MAINTAINER Flavio Castelli <fcastelli@suse.com>
 
-RUN zypper ar -f --no-gpgcheck obs://Virtualization:containers:Portus/openSUSE_Leap_42.1 portus-head && \
+RUN zypper ar -f --no-gpgcheck obs://Virtualization:containers:Portus:2.0/openSUSE_Leap_42.1 portus-2.0 && \
     zypper ref && \
     zypper -n in portus sudo && \
     zypper clean -a
