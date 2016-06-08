@@ -7,7 +7,7 @@
     <specification>openSUSE 42.1 docker container</specification>
   </description>
   <preferences>
-    <type image="docker" container="os132">
+    <type image="docker" container="os421">
       <machine>
         <vmdisk/>
         <vmnic interface="eth0" mode="veth"/>
@@ -49,7 +49,7 @@
     <package name="pkg-config"/>
     <package name="sg3_utils"/>
   </packages>
-    <packages type="delete">
+  <packages type="delete">
     <package name="aaa_base"/>
     <package name="dbus-1"/>
     <package name="dracut"/>
