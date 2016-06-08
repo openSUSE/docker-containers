@@ -26,14 +26,8 @@
   <users group="root">
     <user password="linux" pwdformat="plain" home="/root" name="root"/>
   </users>
-  <repository type="rpm-md" alias="repo-tumbleweed-ports-arm">
-    <source path="obs://openSUSE:Factory:ARM/standard"/>
-  </repository>
-  <repository type="rpm-md" alias="repo-tumbleweed-ports-ppc">
-    <source path="obs://openSUSE:Factory:PowerPC/standard"/>
-  </repository>
-  <repository type="rpm-md" alias="repo-oss">
-    <source path="obs://openSUSE:Factory/snapshot"/>
+  <repository>
+    <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
