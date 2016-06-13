@@ -24,7 +24,7 @@
     <timezone>US/Eastern</timezone>
   </preferences>
   <users group="root">
-    <user password="linux" pwdformat="plain" home="/root" name="root"/>
+    <user home="/root" name="root"/>
   </users>
   <repository type="rpm-md">
     <source path="obs://openSUSE:13.2:Update/standard"/>
