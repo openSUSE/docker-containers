@@ -24,7 +24,7 @@
     <timezone>US/Eastern</timezone>
   </preferences>
   <users group="root">
-    <user password="linux" pwdformat="plain" home="/root" name="root"/>
+    <user home="/root" name="root"/>
   </users>
   <repository>
       <source path="obsrepositories:/"/>
