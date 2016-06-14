@@ -47,6 +47,11 @@ suseImportBuildKey
 baseCleanMount
 
 #======================================
+# Disable recommends
+#--------------------------------------
+sed -i 's/.*installRecommends.*/installRecommends = no/g' /etc/zypp/zypper.conf
+
+#======================================
 # Remove locale files
 #--------------------------------------
 (cd /usr/share/locale && find -name '*.mo' | xargs rm)
