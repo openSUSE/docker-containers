@@ -27,7 +27,7 @@
     <user home="/root" name="root"/>
   </users>
   <repository>
-      <source path="obsrepositories:/"/>
+    <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
