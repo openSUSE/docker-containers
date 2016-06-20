@@ -21,7 +21,6 @@
     <locale>en_US</locale>
     <keytable>us.map.gz</keytable>
     <hwclock>utc</hwclock>
-    <timezone>US/Eastern</timezone>
   </preferences>
   <users group="root">
     <user home="/root" name="root"/>
