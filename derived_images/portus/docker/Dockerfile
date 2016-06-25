@@ -1,7 +1,14 @@
 FROM opensuse/amd64:42.1
 MAINTAINER Flavio Castelli <fcastelli@suse.com>
 
-RUN zypper ar -f --no-gpgcheck obs://Virtualization:containers:Portus/openSUSE_Leap_42.1 portus-head && \
+# This script makes it easier to download and import gpg keys from trusted key
+# servers.
+# This is used later on to import the OBS key used to sign all the contents
+# of the Virtualization:containers project.
+ADD rpm-import-repo-key /usr/sbin/
+
+RUN rpm-import-repo-key 55A0B34D49501BB7CA474F5AA193FBB572174FC2 && \
+    zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_42.1 portus-head && \
     zypper ref && \
     zypper -n in portus sudo && \
     zypper clean -a

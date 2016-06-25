@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+key=$1; shift
+tmpdir=$(mktemp -d)
+chmod 600 "$tmpdir"
+gpg --homedir "$tmpdir" --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"
+gpg --homedir "$tmpdir" --export --armor "$key" > "$tmpdir"/repo.key
+rpm --import "$tmpdir"/repo.key
+rm -rf "$tmpdir"
