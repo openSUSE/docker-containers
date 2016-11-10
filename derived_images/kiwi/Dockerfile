@@ -1,8 +1,8 @@
-FROM opensuse:13.1
+FROM opensuse:13.2
 MAINTAINER Flavio Castelli <fcastelli@suse.com>
 
 # Latest KIWI packages
-RUN zypper ar -f http://download.opensuse.org/repositories/Virtualization:/Appliances/openSUSE_13.1/ virtualization:appliances
+RUN zypper ar -f http://download.opensuse.org/repositories/Virtualization:/Appliances/openSUSE_13.2/ virtualization:appliances
 
 # make sure the package repository is up to date
 RUN zypper --non-interactive --gpg-auto-import-keys ref
