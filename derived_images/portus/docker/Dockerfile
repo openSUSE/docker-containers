@@ -51,6 +51,8 @@ COPY database.yml secrets.yml /srv/Portus/config/
 COPY init /
 COPY check_db.rb /check_db.rb
 
+ENV PORTUS_KEY_PATH /secrets/portus.key
+
 EXPOSE 80 443
 
 ENTRYPOINT ["/init"]
