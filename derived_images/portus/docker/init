@@ -55,15 +55,20 @@ setup_database() {
 # are known
 sudo update-ca-certificates
 
-if [ "$1" == 'portus' ]; then
+case "$1" in
+
+    'portus') 
 	setup_database
 	exec env sudo /usr/sbin/start_apache2 -DFOREGROUND -k start
-fi
+	;;
 
-if [ "$1" == 'crono' ]; then
+    'crono')
 	cd /srv/Portus
-	RAILS_ENV=production exec bin/crono
-fi
+        RAILS_ENV=production exec bin/crono
+	;;
 
-exec "$@"
+    *)
+	exec "$@"
+	;;
 
+esac

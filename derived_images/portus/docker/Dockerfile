@@ -10,7 +10,7 @@ COPY rpm-import-repo-key /usr/sbin/
 RUN rpm-import-repo-key 55A0B34D49501BB7CA474F5AA193FBB572174FC2 && \
     zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_42.1 portus-head && \
     zypper ref && \
-    zypper -n in portus sudo ruby2.1-rubygem-bundler && \
+    zypper -n in portus sudo rubygem\(bundler\) && \
     zypper clean -a
 
 # Add sudo rule that allows the wwwrun user to invoke update-ca-certificates
