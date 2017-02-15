@@ -1,7 +1,7 @@
 production:
-  adapter: mysql2
+  adapter:  mysql2
   encoding: utf8
-  host: <%= ENV['MARIADB_SERVICE_HOST'] %>
-  username: <%= ENV['MARIADB_USER'] %>
-  password: <%= ENV['MARIADB_PASSWORD'] %>
-  database: <%= ENV['MARIADB_DATABASE'] %>
+  host:     <%= ENV["PORTUS_PRODUCTION_HOST"] %>
+  username: <%= ENV["PORTUS_PRODUCTION_USERNAME"] %>
+  password: <%= ENV["PORTUS_PRODUCTION_PASSWORD"] %>
+  database: <%= ENV["PORTUS_PRODUCTION_DATABASE"] %>
