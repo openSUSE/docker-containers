@@ -22,11 +22,8 @@
   <users>
     <user home="/root" name="root" groups="root"/>
   </users>
-  <!--<repository>
+  <repository>
     <source path="obsrepositories:/"/>
-  </repository>-->
-  <repository type="rpm-md">
-    <source path="obs://openSUSE:Factory/snapshot"/>
   </repository>
   <packages type="image">
     <package name="ca-certificates"/>
@@ -35,7 +32,7 @@
     <package name="iputils"/>
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
-    <!--<package name="openSUSE-release-mini"/>-->
+    <package name="openSUSE-release-mini"/>
   </packages>
   <packages type="bootstrap">
     <package name="ncurses-utils"/>
