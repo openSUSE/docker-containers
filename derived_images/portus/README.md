@@ -70,7 +70,7 @@ by the upstream project.
 ### Secrets and certificates
 
 Portus requires both a SSL key and a certificate to serve its contents over
-HTTPS. These files must be located in the `certificates` directory of the
+HTTPS. These files must be located in the `/certificates` directory of the
 container. Moreover, it's up to the deployer to set the `PORTUS_PUMA_TLS_KEY`
 and `PORTUS_PUMA_TLS_CERT` environment variables. Note that the key is also
 used to sign the JWT tokens issued to authenticate all the docker clients
