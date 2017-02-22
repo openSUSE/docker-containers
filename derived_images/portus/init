@@ -57,4 +57,12 @@ setup_database
 # are known
 update-ca-certificates
 
-portusctl exec pumactl -F /puma.rb start
+# Further settings
+export PORTUS_PUMA_HOST="0.0.0.0:3000"
+export RACK_ENV="production"
+export RAILS_ENV="production"
+export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.1.0"
+
+# Change directory and execute puma.
+cd /srv/Portus
+portusctl exec "pumactl -F /srv/Portus/config/puma.rb start"
