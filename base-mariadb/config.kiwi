@@ -16,6 +16,7 @@
         </expose>
         <volumes>
           <volume name="/var/lib/mysql"/>
+          <volume name="/docker-entrypoint-initdb.d"/>
         </volumes>
         <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
       </containerconfig> 
