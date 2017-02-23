@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="base-mariadb">
+<image schemaversion="6.5" name="base-salt-master">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
-    <specification>openSUSE 42.2 docker container</specification>
+    <specification>Salt master running on an openSUSE Leap docker guest</specification>
   </description>
   <preferences>
     <type image="docker">
       <containerconfig
-        name="mariadb"
+        name="salt-master"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <expose>
-          <port number="3306"/>
-        </expose>
-        <volumes>
-          <volume name="/var/lib/mysql"/>
-          <volume name="/docker-entrypoint-initdb.d"/>
-        </volumes>
-        <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
+        <subcommand execute="salt-master"/>
       </containerconfig> 
     </type>
     <version>1.0.0</version>
@@ -44,7 +37,8 @@
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
     <package name="openSUSE-release-mini"/>
-    <package name="mariadb"/>
+    <package name="salt-master"/>
+    <package name="python-MySQL-python"/>
   </packages>
   <packages type="bootstrap">
     <package name="acl"/>
