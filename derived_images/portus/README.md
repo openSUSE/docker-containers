@@ -89,7 +89,7 @@ the logs of this image in the usual ways.
 ## Deployment
 
 It's possible to deploy this image using one of the existing orchestration
-solutions for Docker images. You can read some examples in the `deploy`
+solutions for Docker images. You can read some examples in the `examples`
 directory of Portus' source code.
 
 ### Environment variables
