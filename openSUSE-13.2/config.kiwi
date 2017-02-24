@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="openSUSE-13.2-docker-guest">
+<image schemaversion="6.5" name="opensuse13.2-docker-guest">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
@@ -8,7 +8,10 @@
   </description>
   <preferences>
     <type image="docker">
-      <containerconfig name="os13.2" maintainer="Flavio Castelli fcastelli@suse.com"/>
+      <containerconfig
+        name="opensuse"
+        tag="13.2"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
     <version>1.0.3</version>
     <packagemanager>zypper</packagemanager>

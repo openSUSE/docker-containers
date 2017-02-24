@@ -10,6 +10,7 @@
     <type image="docker">
       <containerconfig
         name="mariadb"
+        tag="10.0"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
           <port number="3306"/>

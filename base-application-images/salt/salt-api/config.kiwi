@@ -10,6 +10,7 @@
     <type image="docker">
       <containerconfig
         name="salt-api"
+        tag="2016.3.4"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <subcommand execute="salt-api"/>
       </containerconfig> 
