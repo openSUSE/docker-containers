@@ -9,7 +9,7 @@
   <preferences>
     <type
       image="docker"
-      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0-Build4.1.docker.tar.xz">
+      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0.docker.tar.xz">
       <containerconfig
         name="mariadb"
         tag="10.0"
