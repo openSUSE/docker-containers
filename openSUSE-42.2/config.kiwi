@@ -10,7 +10,7 @@
     <type image="docker">
       <containerconfig
         name="opensuse"
-        tag="leap-42.2"
+        tag="42.2"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
     <version>1.0.0</version>
