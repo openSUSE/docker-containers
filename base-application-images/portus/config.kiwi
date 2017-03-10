@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.5" name="opensuse-portus">
+  <description type="system">
+    <author>Flavio Castelli</author>
+    <contact>fcastelli@suse.com</contact>
+    <specification>Portus running on an openSUSE Leap docker guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
+      <containerconfig
+        name="opensuse/portus"
+        tag="2.1"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <expose>
+          <port number="3000"/>
+        </expose>
+        <entrypoint execute="init"/>
+      </containerconfig> 
+    </type>
+    <version>1.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+  </preferences>
+  <users>
+    <user home="/root" name="root" groups="root"/>
+  </users>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="portus"/>
+  </packages>
+</image>
