@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="base-salt-minion">
+<image schemaversion="6.5" name="opensuse-salt-minion">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
     <specification>Salt minion running on an openSUSE Leap docker guest</specification>
   </description>
   <preferences>
-    <type image="docker">
+    <type
+      image="docker"
+      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
       <containerconfig
-        name="salt-minion"
+        name="opensuse-salt-minion"
         tag="2016.3.4"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <subcommand execute="salt-minion.sh"/>
@@ -31,39 +33,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="ca-certificates"/>
-    <package name="ca-certificates-mozilla"/>
-    <package name="coreutils"/>
-    <package name="iputils"/>
-    <package name="openSUSE-build-key"/>
-    <package name="openSUSE-release"/>
-    <package name="openSUSE-release-mini"/>
     <package name="salt-minion"/>
-  </packages>
-  <packages type="bootstrap">
-    <package name="acl"/>
-    <package name="dracut"/>
-    <package name="elfutils"/>
-    <package name="filesystem"/>
-    <package name="fipscheck"/>
-    <package name="glibc-locale"/>
-    <package name="ncurses-utils"/>
-    <package name="pkg-config"/>
-    <package name="sg3_utils"/>
-  </packages>
-  <packages type="delete">
-    <package name="aaa_base"/>
-    <package name="dbus-1"/>
-    <package name="dracut"/>
-    <package name="fipscheck"/>
-    <package name="glibc-locale"/>
-    <package name="kbd"/>
-    <package name="kmod"/>
-    <package name="ncurses-utils"/>
-    <package name="pinentry"/>
-    <package name="pkg-config"/>
-    <package name="sg3_utils"/>
-    <package name="systemd-sysvinit"/>
-    <package name="udev"/>
   </packages>
 </image>
