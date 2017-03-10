@@ -55,6 +55,14 @@ setup_database
 
 # ensure additional certificates (like the one of the docker registry)
 # are known
-sudo update-ca-certificates
+update-ca-certificates
 
-exec env sudo /usr/sbin/start_apache2 -DFOREGROUND -k start
+# Further settings
+export PORTUS_PUMA_HOST="0.0.0.0:3000"
+export RACK_ENV="production"
+export RAILS_ENV="production"
+export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.1.0"
+
+# Change directory and execute puma.
+cd /srv/Portus
+portusctl exec "pumactl -F /srv/Portus/config/puma.rb start"
