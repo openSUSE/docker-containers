@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="opensuse-salt-master">
+<image schemaversion="6.5" name="opensuse-portus">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
-    <specification>Salt master running on an openSUSE Leap docker guest</specification>
+    <specification>Portus running on an openSUSE Leap docker guest</specification>
   </description>
   <preferences>
     <type
       image="docker"
-      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
+      derived_from="file:///usr/share/suse-docker-images/native/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
       <containerconfig
-        name="opensuse/salt-master"
-        tag="2016.3.4"
+        name="opensuse/portus"
+        tag="2.1"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <subcommand execute="salt-master"/>
+        <expose>
+          <port number="3000"/>
+        </expose>
+        <entrypoint execute="init"/>
       </containerconfig> 
     </type>
     <version>1.0.0</version>
@@ -33,7 +36,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="salt-master"/>
-    <package name="python-MySQL-python"/>
+    <package name="portus"/>
   </packages>
 </image>

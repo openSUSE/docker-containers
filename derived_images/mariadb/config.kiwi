@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="opensuse-salt-minion">
+<image schemaversion="6.5" name="opensuse-mariadb">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
-    <specification>Salt minion running on an openSUSE Leap docker guest</specification>
+    <specification>MariaDB running on an openSUSE Leap docker guest</specification>
   </description>
   <preferences>
     <type
       image="docker"
-      derived_from="file:///usr/share/suse-docker-images/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
+      derived_from="file:///usr/share/suse-docker-images/native/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
       <containerconfig
-        name="opensuse-salt-minion"
-        tag="2016.3.4"
+        name="opensuse/mariadb"
+        tag="10.0"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <subcommand execute="salt-minion.sh"/>
+        <expose>
+          <port number="3306"/>
+        </expose>
+        <volumes>
+          <volume name="/var/lib/mysql"/>
+          <volume name="/docker-entrypoint-initdb.d"/>
+        </volumes>
+        <entrypoint execute="entrypoint.sh"/>
+        <environment>
+            <env name="MYSQL_DISABLE_REMOTE_ROOT" value="true"/>
+        </environment>
       </containerconfig> 
     </type>
     <version>1.0.0</version>
@@ -33,6 +43,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="salt-minion"/>
+    <package name="mariadb"/>
   </packages>
 </image>
