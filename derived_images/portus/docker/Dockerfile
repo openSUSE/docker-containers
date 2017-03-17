@@ -1,4 +1,4 @@
-FROM opensuse/amd64:42.1
+FROM opensuse/amd64:42.2
 MAINTAINER Flavio Castelli <fcastelli@suse.com>
 
 # This script makes it easier to download and import gpg keys from trusted key
@@ -8,7 +8,7 @@ MAINTAINER Flavio Castelli <fcastelli@suse.com>
 ADD rpm-import-repo-key /usr/sbin/
 
 RUN rpm-import-repo-key 55A0B34D49501BB7CA474F5AA193FBB572174FC2 && \
-    zypper ar -f obs://Virtualization:containers:Portus:2.0/openSUSE_Leap_42.1 portus-2.0 && \
+    zypper ar -f obs://Virtualization:containers:Portus:2.2/openSUSE_Leap_42.2 portus-2.2 && \
     zypper ref && \
     zypper -n in portus sudo && \
     zypper clean -a
