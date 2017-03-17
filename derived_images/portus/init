@@ -51,24 +51,20 @@ setup_database() {
   set -e
 }
 
-# ensure additional certificates (like the one of the docker registry)
-# are known
-sudo update-ca-certificates
+# Ensure additional certificates (e.g. docker registry) are known.
+update-ca-certificates
 
-case "$1" in
+# Further settings
+export PORTUS_PUMA_HOST="0.0.0.0:3000"
+export RACK_ENV="production"
+export RAILS_ENV="production"
+export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.1.0"
 
-    'portus') 
-	setup_database
-	exec env sudo /usr/sbin/start_apache2 -DFOREGROUND -k start
-	;;
-
-    'crono')
-	cd /srv/Portus
-        RAILS_ENV=production exec bin/crono
-	;;
-
-    *)
-	exec "$@"
-	;;
-
-esac
+# Go to the Portus directory and execute the proper command.
+cd /srv/Portus
+if [ -z "$PORTUS_INIT_COMMAND" ]; then
+    setup_database
+    portusctl "pumactl -F /srv/Portus/config/puma.rb start"
+else
+    portusctl "$PORTUS_INIT_COMMAND"
+fi
