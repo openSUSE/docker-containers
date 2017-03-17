@@ -1,1 +1,0 @@
-wwwrun ALL = NOPASSWD: /usr/sbin/start_apache2

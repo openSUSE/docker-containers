@@ -1,7 +1,0 @@
-production:
-  adapter: mysql2
-  encoding: utf8
-  host: <%= ENV['MARIADB_SERVICE_HOST'] %>
-  username: <%= ENV['MARIADB_USER'] %>
-  password: <%= ENV['MARIADB_PASSWORD'] %>
-  database: <%= ENV['MARIADB_DATABASE'] %>
