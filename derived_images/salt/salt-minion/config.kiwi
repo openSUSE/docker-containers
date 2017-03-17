@@ -11,7 +11,7 @@
       image="docker"
       derived_from="file:///usr/share/suse-docker-images/native/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
       <containerconfig
-        name="opensuse-salt-minion"
+        name="opensuse/salt-minion"
         tag="2016.3.4"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <subcommand execute="salt-minion.sh"/>
