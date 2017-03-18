@@ -4,9 +4,18 @@ This directory contains all the resources needed to create a production-ready
 Docker image for Portus.
 
 The master branch of this repository is going to include the files needed
-to build Portus from HEAD. Other branches are available to build Portus out of
-more stable branches. These branches are going to be named using the following
-scheme: `portus-<release>`.
+to build Portus from the `master` branch, which is tagged as `head`. Other
+branches are available to build Portus out of more stable branches. These
+branches are going to be named using the following scheme: `portus-<release>`.
+
+Moreover, note that the deployment method has changed quite a lot:
+
+- From 2.0 to 2.2, Portus uses Apache.
+- From 2.3 onwards (including `head`), Portus uses Puma.
+
+This file contains instructions on the Puma deployment. If you want to know more
+about how to deploy other versions of Portus, please refer to this file on their
+respective branches.
 
 ## Security
 
