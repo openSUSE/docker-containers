@@ -38,7 +38,7 @@
   <packages type="image">
     <package name="portus"/>
   </packages>
-  <package type="delete">
+  <packages type="delete">
     <package name="kbd-legacy"/>
-  </package>
+  </packages>
 </image>
