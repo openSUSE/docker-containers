@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.5" name="opensuse-velum">
+  <description type="system">
+    <author>David Cassany</author>
+    <contact>dcassany@suse.com</contact>
+    <specification>Velum running on an openSUSE Leap docker guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="file:///usr/share/suse-docker-images/native/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
+      <!-- TODO verify velum version -->
+      <containerconfig
+        name="opensuse/velum"
+        tag="0.1" 
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <expose>
+          <port number="3000"/>
+        </expose>
+        <subcommand execute="rails s -b 0.0.0.0 -p 3000 Puma"/>
+      </containerconfig> 
+    </type>
+    <version>1.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+  </preferences>
+  <users>
+    <user home="/root" name="root" groups="root"/>
+  </users>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="velum"/>
+  </packages>
+</image>
