@@ -34,7 +34,7 @@
             <env name="RUBYLIB" value="/srv/velum/vendor/bundle/ruby/2.1.0/gems/bundler*/lib"/>
             <env name="VELUM_IGNORE_ASSETS" value="yes"/>
             <env name="RAILS_SERVE_STATIC_FILES" value="true"/>
-            <env name="VELUM_PUMA_HOST" value="0.0.0.0"/>
+            <env name="VELUM_PUMA_HOST" value="0.0.0.0:3000"/>
         </environment>
       </containerconfig> 
     </type>
