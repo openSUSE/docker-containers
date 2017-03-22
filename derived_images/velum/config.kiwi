@@ -13,7 +13,8 @@
       <!-- TODO verify velum version -->
       <containerconfig
         name="opensuse/velum"
-        tag="0.1" 
+        tag="0.1"
+        workingdir="/srv/velum" 
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
           <port number="3000"/>
