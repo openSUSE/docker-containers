@@ -64,7 +64,7 @@ export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.1.0"
 cd /srv/Portus
 if [ -z "$PORTUS_INIT_COMMAND" ]; then
     setup_database
-    portusctl "pumactl -F /srv/Portus/config/puma.rb start"
+    portusctl exec "pumactl -F /srv/Portus/config/puma.rb start"
 else
-    portusctl "$PORTUS_INIT_COMMAND"
+    portusctl exec "$PORTUS_INIT_COMMAND"
 fi
