@@ -10,24 +10,14 @@
     <type
       image="docker"
       derived_from="file:///usr/share/suse-docker-images/native/opensuse42.2-docker.x86_64-1.0.0.tar.xz">
-      <!-- TODO verify velum version -->
       <containerconfig
         name="opensuse/velum"
-        tag="0.1"
+        tag="0.0"
         workingdir="/srv/velum" 
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
-          <port number="3000"/>
+          <port number="80"/>
         </expose>
-        <!-- TODO note that this command gets overwritten by yaml manifests-->
-        <subcommand execute="rails">
-            <argument name="s"/>
-            <argument name="-b"/>
-            <argument name="0.0.0.0"/>
-            <argument name="-p"/>
-            <argument name="3000"/>
-            <argument name="Puma"/>
-        </subcommand>
         <environment>
             <env name="RAILS_ENV" value="production"/>
             <env name="GEM_PATH" value="/srv/velum/vendor/bundle/ruby/2.1.0"/>
@@ -35,7 +25,6 @@
             <env name="RUBYLIB" value="/srv/velum/vendor/bundle/ruby/2.1.0/gems/bundler*/lib"/>
             <env name="VELUM_IGNORE_ASSETS" value="yes"/>
             <env name="RAILS_SERVE_STATIC_FILES" value="true"/>
-            <env name="VELUM_PUMA_HOST" value="0.0.0.0:3000"/>
         </environment>
       </containerconfig> 
     </type>
