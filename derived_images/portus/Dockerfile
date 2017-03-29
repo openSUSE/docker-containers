@@ -12,7 +12,8 @@ MAINTAINER SUSE Containers Team <containers@suse.com>
 COPY init check_db.rb rpm-import-repo-key /
 
 # Install Portus and prepare the /certificates directory.
-RUN /rpm-import-repo-key 55A0B34D49501BB7CA474F5AA193FBB572174FC2 && \
+RUN chmod +x /rpm-import-repo-key /init && \
+    /rpm-import-repo-key 55A0B34D49501BB7CA474F5AA193FBB572174FC2 && \
     zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_42.2 portus && \
     zypper ref && \
     zypper -n in portus && \
