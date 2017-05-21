@@ -21,7 +21,7 @@ For each base image there's a dedicated OBS subproject under the
 project.
 
 The build results are automatically aggregated inside of
-[this repository](http://download.opensuse.org/repositories/Virtualization:/containers/images/).
+[this repository](http://download.opensuse.org/repositories/Virtualization:/containers:/images:/).
 
 Unfortunately it is not possible to use the OBS service hook for OBS because
 this repository contains the source code of more than 1 OBS project.
