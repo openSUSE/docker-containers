@@ -138,7 +138,7 @@ make_config() {
 set_root_password() {
     password1=$MYSQL_ROOT_PASSWORD
 
-    if [ "$password1" = "" ]; then
+    if [ "$password1" == "" ]; then
     	echo "Sorry, you can't use an empty password here."
 	    echo
     	clean_and_exit
@@ -316,10 +316,15 @@ if [ $? -ne 0 ]; then
 fi
 
 file_env 'MYSQL_ROOT_PASSWORD'
-if [ -z "$MYSQL_ROOT_PASSWORD" ]; then
+file_env 'MYSQL_ROOT_PASSWORD_FILE'
+if [ -z "$MYSQL_ROOT_PASSWORD" ] && [ -z "$MYSQL_ROOT_PASSWORD_FILE" ]; then
     echo >&2 "Error: Database uninitialized and the root password is not specified"
-    echo >&2 "You need to specify MYSQL_ROOT_PASSWORD"
+    echo >&2 "You need to specify MYSQL_ROOT_PASSWORD or MYSQL_ROOT_PASSWORD_FILE"
     clean_and_exit
+fi
+
+if [ -n "$MYSQL_ROOT_PASSWORD_FILE" ]; then
+    MYSQL_ROOT_PASSWORD=`cat "$MYSQL_ROOT_PASSWORD_FILE"`
 fi
 
 su mysql -s /bin/bash -c "$mysqld_command --defaults-file=$mysqld_config --skip-networking" &
@@ -392,5 +397,3 @@ echo 'MySQL init process done. Ready for start up.'
 echo
 
 cleanup
-
-$mysqld_systemd_helper start
