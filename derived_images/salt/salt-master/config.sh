@@ -27,14 +27,39 @@ test -f /.profile && . /.profile
 echo "Configure image: [$kiwi_iname]..."
 
 #======================================
+# Setup baseproduct link
+#--------------------------------------
+suseSetupProduct
+
+#======================================
+# SuSEconfig
+#--------------------------------------
+suseConfig
+
+#======================================
+# Import repositories' keys
+#--------------------------------------
+suseImportBuildKey
+
+#======================================
 # Prepare saltapi user
 #--------------------------------------
 useradd -MNrs /bin/false saltapi
-echo "saltapi:saltapi" | chpasswd
 
 #======================================
 # Umount kernel filesystems
 #--------------------------------------
 baseCleanMount
+
+#======================================
+# Disable recommends
+#--------------------------------------
+sed -i 's/.*installRecommends.*/installRecommends = no/g' /etc/zypp/zypper.conf
+
+#======================================
+# Remove locale files
+#--------------------------------------
+(cd /usr/share/locale && find -name '*.mo' | xargs rm)
+
 
 exit 0
