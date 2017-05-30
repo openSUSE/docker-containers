@@ -22,10 +22,13 @@
           <volume name="/docker-entrypoint-initdb.d"/>
         </volumes>
         <entrypoint execute="entrypoint.sh"/>
+        <subcommand execute="/usr/lib/mysql/mysql-systemd-helper">
+          <argument name="start"/>
+        </subcommand>
         <environment>
             <env name="MYSQL_DISABLE_REMOTE_ROOT" value="true"/>
         </environment>
-      </containerconfig> 
+      </containerconfig>
     </type>
     <version>1.0.0</version>
     <packagemanager>zypper</packagemanager>
