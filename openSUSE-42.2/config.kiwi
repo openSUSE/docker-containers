@@ -36,6 +36,10 @@
     <package name="openSUSE-build-key"/>
     <package name="openSUSE-release"/>
     <package name="openSUSE-release-mini"/>
+    <!--
+        Needed to avoid the inclusion of krb5-mini by the OBS solver
+    -->
+    <package name="krb5"/>
   </packages>
   <packages type="bootstrap">
     <package name="acl"/>
