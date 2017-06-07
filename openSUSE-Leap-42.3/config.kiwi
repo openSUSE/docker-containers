@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.1" name="openSUSE-42.1-docker-guest">
+<image schemaversion="6.1" name="openSUSE-Leap-42.3-docker-guest">
   <description type="system">
     <author>Flavio Castelli</author>
     <contact>fcastelli@suse.com</contact>
-    <specification>openSUSE 42.1 docker container</specification>
+    <specification>openSUSE Leap 42.3 docker container</specification>
   </description>
   <preferences>
-    <type image="docker" container="os421">
+    <type image="docker" container="os423">
       <machine>
         <vmdisk/>
         <vmnic interface="eth0" mode="veth"/>
@@ -39,7 +39,7 @@
     <!-- 
         Needed to avoid the inclusion of krb5-mini by the OBS solver
     -->
-    <package name="krb5"/> 
+    <package name="krb5"/>
   </packages>
   <packages type="bootstrap">
     <package name="acl"/>
