@@ -56,5 +56,22 @@ sed -i 's/.*installRecommends.*/installRecommends = no/g' /etc/zypp/zypper.conf
 #--------------------------------------
 (cd /usr/share/locale && find -name '*.mo' | xargs rm)
 
+#======================================
+# Add repo depending on the arch
+#--------------------------------------
+
+case $( arch ) in
+    x86_64 ) echo "Adding repos for x86_64"
+        zypper ar http://download.opensuse.org/tumbleweed/repo/oss/ oss
+        zypper ar http://download.opensuse.org/tumbleweed/repo/non-oss/ non-oss
+        ;;
+    s390x ) echo "Adding repos for s390x"
+        zypper ar http://download.opensuse.org/ports/zsystems/tumbleweed/repo/oss/ oss
+        zypper ar http://download.opensuse.org/ports/zsystems/tumbleweed/repo/non-oss/ non-oss
+        ;;
+    * )     echo "No repos for $arch"
+        ;;
+esac
+
 
 exit 0
