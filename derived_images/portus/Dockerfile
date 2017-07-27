@@ -1,4 +1,4 @@
-FROM opensuse/amd64:42.2
+FROM opensuse/amd64:42.3
 MAINTAINER SUSE Containers Team <containers@suse.com>
 
 # Install some helper scripts:
