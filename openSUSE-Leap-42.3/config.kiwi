@@ -9,7 +9,7 @@
   <preferences>
     <type image="docker">
       <containerconfig
-        name="opensuse"
+        name="opensuse/leap"
         tag="42.3"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
