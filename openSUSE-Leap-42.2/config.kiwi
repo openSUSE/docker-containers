@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.1" name="openSUSE-42.2-docker-guest">
+<image schemaversion="6.5" name="openSUSE-Leap-42.2-docker-guest">
   <description type="system">
-    <author>Flavio Castelli</author>
-    <contact>fcastelli@suse.com</contact>
-    <specification>openSUSE 42.2 docker container</specification>
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>openSUSE Leap 42.2 docker container</specification>
   </description>
   <preferences>
-    <type image="docker" container="os422">
-      <machine>
-        <vmdisk/>
-        <vmnic interface="eth0" mode="veth"/>
-      </machine>
+    <type image="docker">
+      <containerconfig
+        name="opensuse/leap"
+        tag="42.2"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
     <version>1.0.0</version>
     <packagemanager>zypper</packagemanager>
@@ -22,8 +22,8 @@
     <keytable>us.map.gz</keytable>
     <hwclock>utc</hwclock>
   </preferences>
-  <users group="root">
-    <user home="/root" name="root"/>
+  <users>
+    <user home="/root" name="root" groups="root"/>
   </users>
   <repository>
     <source path="obsrepositories:/"/>
