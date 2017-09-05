@@ -22,7 +22,7 @@ setup_database() {
   export SKIP_MIGRATION=1
 
   while [ $RETRY -ne 0 ]; do
-    case $(SKIP_MIGRATION=1 portusctl exec rails r /check_db.rb | grep DB) in
+    case $(SKIP_MIGRATION=1 portusctl exec rails r /srv/Portus/bin/check_db.rb | grep DB) in
       "DB_DOWN")
         if [ "$COUNT" -ge "$TIMEOUT" ]; then
           printf " [FAIL]\n"
