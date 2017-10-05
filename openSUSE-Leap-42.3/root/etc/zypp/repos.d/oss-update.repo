@@ -1,0 +1,8 @@
+[oss-update]
+name=OSS Update
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/update/leap/42.3/oss/
+path=/
+type=rpm-md
+keeppackages=0
