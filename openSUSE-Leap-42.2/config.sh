@@ -47,9 +47,27 @@ suseImportBuildKey
 baseCleanMount
 
 #======================================
+# Add repositories
+#--------------------------------------
+case $( arch ) in
+    x86_64 ) echo "Adding repos for x86_64"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/distribution/leap/42.2/repo/oss/suse/ "OSS"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/update/leap/42.2/oss/ "OSS Update"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/distribution/leap/42.2/repo/non-oss/suse/ "NON OSS"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/update/leap/42.2/non-oss/ "NON OSS Update"
+        ;;
+    * ) echo "No repos for $arch"
+        ;;
+esac
+
+#======================================
 # Disable recommends
 #--------------------------------------
-sed -i 's/.*installRecommends.*/installRecommends = no/g' /etc/zypp/zypper.conf
+sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf
 
 #======================================
 # Remove locale files

@@ -1,8 +1,0 @@
-[non-oss]
-name=NON-OSS
-enabled=1
-autorefresh=1
-baseurl=http://download.opensuse.org/tumbleweed/repo/non-oss/
-path=/
-type=yast2
-keeppackages=0

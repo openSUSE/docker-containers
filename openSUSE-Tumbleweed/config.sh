@@ -47,9 +47,37 @@ suseImportBuildKey
 baseCleanMount
 
 #======================================
+# Add repositories
+#--------------------------------------
+case $( arch ) in
+    x86_64 ) echo "Adding repos for x86_64"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/tumbleweed/repo/oss/ "OSS"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/tumbleweed/repo/non-oss/ "NON OSS"
+        ;;
+    aarch64 ) echo "Adding repo for aarch64"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/ports/aarch64/tumbleweed/repo/oss/ "OSS"
+        ;;
+    ppc64le ) echo "Adding repo for ppc64le"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/ "OSS"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/ports/ppc/tumbleweed/repo/non-oss/ "NON OSS"
+    s390x ) echo "Adding repo for s390x"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/ports/zsystems/tumbleweed/repo/oss/ "OSS"
+        zypper ar --refresh -K \
+            http://download.opensuse.org/ports/zsystems/tumbleweed/repo/non-oss/ "NON OSS"
+    * ) echo "No repos for $arch"
+        ;;
+esac
+
+#======================================
 # Disable recommends
 #--------------------------------------
-sed -i 's/.*installRecommends.*/installRecommends = no/g' /etc/zypp/zypper.conf
+sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf
 
 #======================================
 # Remove locale files

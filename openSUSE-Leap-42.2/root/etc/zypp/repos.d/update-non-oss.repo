@@ -1,8 +1,0 @@
-[update-non-oss]
-name=Update Non-Oss
-enabled=1
-autorefresh=1
-baseurl=http://download.opensuse.org/update/leap/42.2/non-oss/
-path=/
-type=rpm-md
-keeppackages=0
