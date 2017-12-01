@@ -71,6 +71,7 @@ case $( arch ) in
             http://download.opensuse.org/ports/zsystems/tumbleweed/repo/oss/ "OSS"
         zypper ar --refresh -K \
             http://download.opensuse.org/ports/zsystems/tumbleweed/repo/non-oss/ "NON OSS"
+        ;;
     * ) echo "No repos for $arch"
         ;;
 esac
