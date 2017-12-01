@@ -65,6 +65,7 @@ case $( arch ) in
             http://download.opensuse.org/ports/ppc/tumbleweed/repo/oss/ "OSS"
         zypper ar --refresh -K \
             http://download.opensuse.org/ports/ppc/tumbleweed/repo/non-oss/ "NON OSS"
+        ;;
     s390x ) echo "Adding repo for s390x"
         zypper ar --refresh -K \
             http://download.opensuse.org/ports/zsystems/tumbleweed/repo/oss/ "OSS"
