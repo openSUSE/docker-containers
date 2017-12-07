@@ -52,13 +52,13 @@ baseCleanMount
 case $( arch ) in
     x86_64 ) echo "Adding repos for x86_64"
         zypper ar --refresh -K \
-            http://download.opensuse.org/distribution/leap/42.2/repo/oss/suse/ "OSS"
+            http://download.opensuse.org/distribution/leap/42.3/repo/oss/suse/ "OSS"
         zypper ar --refresh -K \
-            http://download.opensuse.org/update/leap/42.2/oss/ "OSS Update"
+            http://download.opensuse.org/update/leap/42.3/oss/ "OSS Update"
         zypper ar --refresh -K \
-            http://download.opensuse.org/distribution/leap/42.2/repo/non-oss/suse/ "NON OSS"
+            http://download.opensuse.org/distribution/leap/42.3/repo/non-oss/suse/ "NON OSS"
         zypper ar --refresh -K \
-            http://download.opensuse.org/update/leap/42.2/non-oss/ "NON OSS Update"
+            http://download.opensuse.org/update/leap/42.3/non-oss/ "NON OSS Update"
         ;;
     aarch64 ) echo "Adding repo for aarch64"
         zypper ar --refresh -K \
