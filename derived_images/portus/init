@@ -58,11 +58,13 @@ update-ca-certificates
 export PORTUS_PUMA_HOST="0.0.0.0:3000"
 export RACK_ENV="production"
 export RAILS_ENV="production"
-export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.1.0"
+export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.4.0"
 
 # Go to the Portus directory and execute the proper command.
 cd /srv/Portus
-if [ -z "$PORTUS_INIT_COMMAND" ]; then
+if [ ! -z "$PORTUS_BACKGROUND" ]; then
+    portusctl exec rails r /srv/Portus/bin/background.rb
+elif [ -z "$PORTUS_INIT_COMMAND" ]; then
     setup_database
     portusctl exec "pumactl -F /srv/Portus/config/puma.rb start"
 else

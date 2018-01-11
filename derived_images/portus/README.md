@@ -150,6 +150,10 @@ Executing other commands:
   * `PORTUS_INIT_COMMAND`: you can set this environment variable with the
     command that you'd like to run. For example, if you want to run crono, you
     can set it to "bin/crono".
+  * `PORTUS_BACKGROUND`: you can set this environment to true in order to
+    indicate that the process to be executed is the rails runner
+    `bin/background.rb` (that is, the background process). This is a shortcut
+    for `PORTUS_INIT_COMMAND=rails r /srv/Portus/bin/background.rb`.
 
 You can also pass further environment variables to configure Portus as
 described [here](http://port.us.org/docs/Configuring-Portus.html#override-specific-configuration-options).
