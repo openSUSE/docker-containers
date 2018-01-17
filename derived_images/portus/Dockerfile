@@ -13,7 +13,7 @@ RUN chmod +x /init && \
     rpm --import /tmp/build/repo.key && \
     rm -rf /tmp/build && \
     # Now add the repository and installa portus.
-    zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_42.3 portus && \
+    zypper ar -f obs://Virtualization:containers:Portus:2.3/openSUSE_Leap_42.3 portus && \
     zypper ref && \
     zypper -n in --from portus ruby-common portus && \
     # Remove unneeded packages and clean stuff.
