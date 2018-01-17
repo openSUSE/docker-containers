@@ -125,11 +125,13 @@ Security related settings:
     SSL altogether.
 
 Database releated settings:
+Se [configuring the database](http://port.us.org/docs/database.html)
 
-  * `PORTUS_PRODUCTION_HOST`: the host running the MariaDB database.
-  * `PORTUS_PRODUCTION_USERNAME`: the database user to be used.
-  * `PORTUS_PRODUCTION_PASSWORD`: the password of the database user.
-  * `PORTUS_PRODUCTION_DATABASE`: the name of the Portus database.
+  * `PORTUS_DB_ADAPTER`: databasetype. Legal values are postgresql or mysql2. Default is mysql2
+  * `PORTUS_DB_HOST`: the host running the MariaDB (or Postgres) database.
+  * `PORTUS_DB_USERNAME`: the database user to be used.
+  * `PORTUS_DB_PASSWORD`: the password of the database user.
+  * `PORTUS_DB_DATABASE`: the name of the Portus database.
 
 Deployment related settings:
 
