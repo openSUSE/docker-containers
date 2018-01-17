@@ -56,7 +56,7 @@ update-ca-certificates
 export PORTUS_PUMA_HOST="0.0.0.0:3000"
 export RACK_ENV="production"
 export RAILS_ENV="production"
-export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.4.0"
+export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.5.0"
 
 # Go to the Portus directory and execute the proper command.
 cd /srv/Portus
