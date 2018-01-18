@@ -8,6 +8,7 @@ RUN chmod +x /rpm-import-repo-key && \
     zypper ar -f obs://devel:languages:ruby/openSUSE_Leap_42.3 ruby && \
     zypper -n in --no-recommends ruby2.5 ruby2.5-rubygem-gem2rpm && \
     zypper clean -a && \
-    rm /rpm-import-repo-key
+    rm /rpm-import-repo-key && \
+    update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby.ruby2.5 3 && \
+    update-alternatives --install /usr/bin/gem gem /usr/bin/gem.ruby2.5 3
 
-RUN update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby.ruby2.5 3
