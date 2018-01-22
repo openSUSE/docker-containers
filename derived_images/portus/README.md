@@ -124,16 +124,16 @@ Security related settings:
   * `PORTUS_CHECK_SSL_USAGE_ENABLED`: Set this to `false` if you want to disable
     SSL altogether.
 
-Database releated settings (se [configuring the database](http://port.us.org/docs/database.html) for details):
+Database releated settings (see [configuring the database](http://port.us.org/docs/database.html) for details):
 
-  * `PORTUS_DB_ADAPTER`: databasetype. Legal values are postgresql or mysql2. Default is mysql2
+  * `PORTUS_DB_ADAPTER`: database type. Supported values are `postgresql` and `mysql2`. Default is `mysql2`.
   * `PORTUS_DB_HOST`: the host running the MariaDB (or Postgres) database.
   * `PORTUS_DB_USERNAME`: the database user to be used.
   * `PORTUS_DB_PASSWORD`: the password of the database user.
   * `PORTUS_DB_DATABASE`: the name of the Portus database.
-  * `PORTUS_DB_PORT`: alternative database port number
-  * `PORTUS_DB_POOL`: the number of pool connections
-  * `PORTUS_DB_TIMEOUT`: timeoutvalue for requests
+  * `PORTUS_DB_PORT`: alternative database port number.
+  * `PORTUS_DB_POOL`: the number of pool connections.
+  * `PORTUS_DB_TIMEOUT`: timeout value for requests.
 
 Deployment related settings:
 
