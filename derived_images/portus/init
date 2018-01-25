@@ -34,7 +34,7 @@ setup_database() {
       "DB_EMPTY"|"DB_MISSING")
         # create db, apply schema and seed
         echo "Initializing database"
-        portusctl rake db:setup
+        portusctl exec rake db:setup
         if [ $? -ne 0 ]; then
             echo "Error at setup time"
             exit 1
