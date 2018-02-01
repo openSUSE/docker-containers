@@ -29,6 +29,7 @@
     <package name="openSUSE-build-key"/>
     <package name="krb5"/>
     <package name="netcfg"/>
+    <package name="kubic-locale-archive"/>
   </packages>
   <packages type="bootstrap">
     <package name="aaa_base"/>
