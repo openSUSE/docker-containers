@@ -65,6 +65,9 @@ if [ ! -z "$PORTUS_BACKGROUND" ]; then
     portusctl exec rails r /srv/Portus/bin/background.rb
 elif [ -z "$PORTUS_INIT_COMMAND" ]; then
     setup_database
+    if [ "$PORTUS_RUN_FOREGROUND_AND_BACKGROUND" = "true" ]; then
+        portusctl exec rails r /srv/Portus/bin/background.rb &
+    fi
     portusctl exec "pumactl -F /srv/Portus/config/puma.rb start"
 else
     portusctl exec "$PORTUS_INIT_COMMAND"
