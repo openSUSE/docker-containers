@@ -158,6 +158,8 @@ Executing other commands:
     indicate that the process to be executed is the rails runner
     `bin/background.rb` (that is, the background process). This is a shortcut
     for `PORTUS_INIT_COMMAND=rails r /srv/Portus/bin/background.rb`.
+  * `PORTUS_RUN_FOREGROUND_AND_BACKGROUND`: you can set this environment to true in order to 
+    let puma and `bin/background.rb` execute together in the same container.
 
 You can also pass further environment variables to configure Portus as
 described [here](http://port.us.org/docs/Configuring-Portus.html#override-specific-configuration-options).
