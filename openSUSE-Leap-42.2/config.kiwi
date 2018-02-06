@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="openSUSE-Leap-42.2-docker-guest">
+<image schemaversion="6.5" name="openSUSE-Leap-42.2-container-guest">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>openSUSE Leap 42.2 docker container</specification>
+    <specification>openSUSE Leap 42.2 container</specification>
   </description>
   <preferences>
     <type image="docker">
