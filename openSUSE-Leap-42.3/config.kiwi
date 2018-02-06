@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="openSUSE-Leap-42.3-container-guest">
+<image schemaversion="6.5" name="openSUSE-Leap-42.3-container-image">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
