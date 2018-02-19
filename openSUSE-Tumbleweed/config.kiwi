@@ -8,9 +8,10 @@
   </description>
   <preferences>
     <type image="docker">
+      <!-- This tag is not on docker hub, to avoid conflicts -->
       <containerconfig
-        name="opensuse"
-        tag="tumbleweed"
+        name="opensuse/tumbleweed"
+        tag="current"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
     <version>1.0.4</version>
