@@ -36,7 +36,7 @@
     <package name="cracklib-dict-small"/>
     <package name="filesystem"/>
     <package name="openSUSE-release"/>
-    <package name="openSUSE-release-mini"/>
+    <package name="openSUSE-release-ftp"/>
     <package name="shadow"/>
   </packages>
 </image>
