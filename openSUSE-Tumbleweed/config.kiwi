@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.5" name="openSUSE-Tumbleweed-container-image">
+<image schemaversion="6.5" name="opensuse-tumbleweed-image">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -8,9 +8,10 @@
   </description>
   <preferences>
     <type image="docker">
+      <!-- This tag is not on docker hub, to avoid conflicts -->
       <containerconfig
-        name="opensuse"
-        tag="tumbleweed"
+        name="opensuse/tumbleweed"
+        tag="current"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"/>
     </type>
     <version>1.0.4</version>
@@ -36,7 +37,7 @@
     <package name="cracklib-dict-small"/>
     <package name="filesystem"/>
     <package name="openSUSE-release"/>
-    <package name="openSUSE-release-mini"/>
+    <package name="openSUSE-release-ftp"/>
     <package name="shadow"/>
   </packages>
 </image>
