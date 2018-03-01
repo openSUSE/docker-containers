@@ -1,5 +1,5 @@
 This is a clair image based on v2 release plus
-[this patch]()
+[this patch](https://github.com/coreos/clair/pull/503)
 that adds support for openSUSE and SUSE images.
 
 The entrypoint of the image is the `clair` binary.
