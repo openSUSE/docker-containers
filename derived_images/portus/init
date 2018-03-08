@@ -56,8 +56,11 @@ update-ca-certificates
 export PORTUS_PUMA_HOST="0.0.0.0:3000"
 export RACK_ENV="production"
 export RAILS_ENV="production"
-export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.5.0"
 export CCONFIG_PREFIX="PORTUS"
+
+if [ -z "$PORTUS_GEM_GLOBAL" ]; then
+    export GEM_PATH="/srv/Portus/vendor/bundle/ruby/2.5.0"
+fi
 
 # Go to the Portus directory and execute the proper command.
 cd /srv/Portus
