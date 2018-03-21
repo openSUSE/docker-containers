@@ -93,9 +93,12 @@ it if it ends with the `.crt` extension.
 This image also supports [Docker
 secrets](https://docs.docker.com/engine/swarm/secrets/) for some environment
 variables. In particular, setting `PORTUS_DB_PASSWORD_FILE`,
-`PORTUS_PASSWORD_FILE` and `PORTUS_SECRET_KEY_BASE_FILE` with the path for the
-secrets will automatically set `PORTUS_DB_PASSWORD`, `PORTUS_PASSWORD` and
-`PORTUS_SECRET_KEY_BASE` respectively with the contents of these files.
+`PORTUS_PASSWORD_FILE`, `PORTUS_SECRET_KEY_BASE_FILE`,
+`PORTUS_EMAIL_SMTP_PASSWORD_FILE` and `PORTUS_LDAP_AUTHENTICATION_PASSWORD_FILE`
+with the path for the secrets will automatically set `PORTUS_DB_PASSWORD`,
+`PORTUS_PASSWORD`, `PORTUS_SECRET_KEY_BASE`, `PORTUS_EMAIL_SMTP_PASSWORD` and
+`PORTUS_LDAP_AUTHENTICATION_PASSWORD` respectively with the contents of these
+files.
 
 ### Logging
 
