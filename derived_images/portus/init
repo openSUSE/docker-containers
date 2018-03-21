@@ -82,7 +82,6 @@ done
 update-ca-certificates
 
 # Further settings
-export PORTUS_PUMA_HOST="0.0.0.0:3000"
 export RACK_ENV="production"
 export RAILS_ENV="production"
 export CCONFIG_PREFIX="PORTUS"

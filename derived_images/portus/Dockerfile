@@ -23,5 +23,7 @@ RUN chmod +x /init && \
     rm -rf /etc/pki/trust/anchors && \
     ln -sf /certificates /etc/pki/trust/anchors
 
+ENV PORTUS_PUMA_HOST="0.0.0.0:3000"
 EXPOSE 3000
+
 ENTRYPOINT ["/init"]
