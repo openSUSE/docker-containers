@@ -90,6 +90,16 @@ uses TLS to secure itself. The Registry certificate must be placed inside
 of `/certificates`, the `init` script of this image will automatically import
 it if it ends with the `.crt` extension.
 
+This image also supports [Docker
+secrets](https://docs.docker.com/engine/swarm/secrets/) for some environment
+variables. In particular, setting `PORTUS_DB_PASSWORD_FILE`,
+`PORTUS_PASSWORD_FILE`, `PORTUS_SECRET_KEY_BASE_FILE`,
+`PORTUS_EMAIL_SMTP_PASSWORD_FILE` and `PORTUS_LDAP_AUTHENTICATION_PASSWORD_FILE`
+with the path for the secrets will automatically set `PORTUS_DB_PASSWORD`,
+`PORTUS_PASSWORD`, `PORTUS_SECRET_KEY_BASE`, `PORTUS_EMAIL_SMTP_PASSWORD` and
+`PORTUS_LDAP_AUTHENTICATION_PASSWORD` respectively with the contents of these
+files.
+
 ### Logging
 
 All logging is done to `stdout` and `stderr`. This makes it possible to handle
@@ -114,11 +124,13 @@ Here's the full list of environment variables:
 
 Security related settings:
 
-  * `PORTUS_SECRET_KEY_BASE`: you can generate it using `openssl rand -hex 64`
+  * `PORTUS_SECRET_KEY_BASE`: you can generate it using `openssl rand -hex 64`,
+    or provide it as a Docker secret with `PORTUS_SECRET_KEY_BASE_FILE`.
   * `PORTUS_KEY_PATH`: the path of the certificate key. This is the key that
     Portus will use for the authentication with your Docker registry.
   * `PORTUS_PASSWORD`: the password of the hidden `portus` user. You can
-    generate it using `openssl rand -hex 64`
+    generate it using `openssl rand -hex 64`. You can provide a Docker secret by
+    setting `PORTUS_PASSWORD_FILE`.
   * `PORTUS_PUMA_TLS_KEY`: The TLS key to be picked by Puma.
   * `PORTUS_PUMA_TLS_CERT`: The TLS certificate to be picked by Puma.
   * `PORTUS_CHECK_SSL_USAGE_ENABLED`: Set this to `false` if you want to disable
@@ -129,7 +141,8 @@ Database releated settings (see [configuring the database](http://port.us.org/do
   * `PORTUS_DB_ADAPTER`: database type. Supported values are `postgresql` and `mysql2`. Default is `mysql2`.
   * `PORTUS_DB_HOST`: the host running the MariaDB (or Postgres) database.
   * `PORTUS_DB_USERNAME`: the database user to be used.
-  * `PORTUS_DB_PASSWORD`: the password of the database user.
+  * `PORTUS_DB_PASSWORD`: the password of the database user. You can provide a
+    Docker secret by setting `PORTUS_DB_PASSWORD_FILE`.
   * `PORTUS_DB_DATABASE`: the name of the Portus database.
   * `PORTUS_DB_PORT`: alternative database port number.
   * `PORTUS_DB_POOL`: the number of pool connections.
