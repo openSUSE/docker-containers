@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# This script will:
+#   * Ensure some secrets are read from file
+#   * Import all the SSL certificates, this is needed to talk with the
+#     external services like a notification endpoint using TLS.
+#
+# Finally the script will start the registry.
+
+set -e
+
+# Usage: file_env 'XYZ_DB_PASSWORD' 'example'. This code is taken from:
+# https://github.com/docker-library/postgres/blob/master/docker-entrypoint.sh
+file_env() {
+    local var="$1"
+    local fileVar="${var}_FILE"
+    local def="${2:-}"
+    if [ "${!var:-}" ] && [ "${!fileVar:-}" ]; then
+        echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
+        exit 1
+    fi
+    local val="$def"
+    if [ "${!var:-}" ]; then
+        val="${!var}"
+    elif [ "${!fileVar:-}" ]; then
+        val="$(< "${!fileVar}")"
+    fi
+    export "$var"="$val"
+    unset "$fileVar"
+}
+
+# Setup environment variables from secrets.
+secrets=( REGISTRY_HTTP_SECRET )
+for s in "${secrets[@]}"; do
+    if [[ -z "${!s}" ]]; then
+        file_env "$s"
+    fi
+done
+
+# Ensure additional certificates (e.g. notification endpoint, external services)
+# are known.
+update-ca-certificates
+
+registry serve /etc/registry/config.yml
