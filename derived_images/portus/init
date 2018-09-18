@@ -32,9 +32,8 @@ setup_database() {
         COUNT=$((COUNT+5))
         ;;
       "DB_EMPTY"|"DB_MISSING")
-        # create db, apply schema and seed
-        echo "Initializing database"
-        portusctl exec rake db:setup
+        # Configure database.
+        portusctl exec rake portus:db:configure
         if [ $? -ne 0 ]; then
             echo "Error at setup time"
             exit 1
