@@ -1,4 +1,4 @@
-FROM opensuse/leap:42.3
+FROM opensuse/leap:15.0
 MAINTAINER SUSE Containers Team <containers@suse.com>
 
 # Install the entrypoint of this image.
@@ -12,12 +12,10 @@ RUN chmod +x /init && \
     gpg --homedir /tmp/build --export --armor 55A0B34D49501BB7CA474F5AA193FBB572174FC2 > /tmp/build/repo.key && \
     rpm --import /tmp/build/repo.key && \
     rm -rf /tmp/build && \
-    # Now add the repository and installa portus.
-    zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_42.3 portus && \
+    # Now add the repository and install portus.
+    zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
     zypper ref && \
     zypper -n in --from portus ruby-common portus && \
-    # Remove unneeded packages and clean stuff.
-    zypper -n rm kbd-legacy && \
     zypper clean -a && \
     # Prepare the certificates directory.
     rm -rf /etc/pki/trust/anchors && \
