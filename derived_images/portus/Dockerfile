@@ -11,6 +11,7 @@ RUN chmod +x /init && \
     # that case, we fall back to alternative key servers.
     mkdir -m 0600 /tmp/build && \
     (\
+        gpg --homedir /tmp/build --keyserver hkp://keys.gnupg.net:80 --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
         gpg --homedir /tmp/build --keyserver ha.pool.sks-keyservers.net --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
         gpg --homedir /tmp/build --keyserver pgp.mit.edu --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
         gpg --homedir /tmp/build --keyserver keyserver.pgp.com --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 \
