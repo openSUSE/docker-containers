@@ -9,16 +9,24 @@ RUN chmod +x /init && \
     # Fetch the key from the obs://Virtualization:containers:Portus
     # project. Sometimes the key server times out or has some other problem. In
     # that case, we fall back to alternative key servers.
-    mkdir -m 0600 /tmp/build && \
-    (\
-        gpg --homedir /tmp/build --keyserver hkp://keys.gnupg.net:80 --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
-        gpg --homedir /tmp/build --keyserver ha.pool.sks-keyservers.net --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
-        gpg --homedir /tmp/build --keyserver pgp.mit.edu --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 || \
-        gpg --homedir /tmp/build --keyserver keyserver.pgp.com --recv-keys 55a0b34d49501bb7ca474f5aa193fbb572174fc2 \
-    ) && \
-    gpg --homedir /tmp/build --export --armor 55A0B34D49501BB7CA474F5AA193FBB572174FC2 > /tmp/build/repo.key && \
-    rpm --import /tmp/build/repo.key && \
-    rm -rf /tmp/build && \
+    TMPDIR=/tmp/build && \
+    mkdir -m 0600 $TMPDIR && \
+    GPG_KEY=55a0b34d49501bb7ca474f5aa193fbb572174fc2 && \
+    found=''; \
+    for server in \
+      hkp://keys.gnupg.net:80 \
+      ha.pool.sks-keyservers.net \
+      hkp://keyserver.ubuntu.com:80 \
+      hkp://p80.pool.sks-keyservers.net:80 \
+      pgp.mit.edu \
+    ; do \
+      echo "Fetching GPG key $GPG_KEY from $server"; \
+      gpg --homedir $TMPDIR --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$GPG_KEY" && found=yes && break; \
+    done; \
+    test -z "$found" && echo >&2 "error: failed to fetch GPG key $GPG_KEY" && exit 1; \
+    gpg --homedir $TMPDIR --export --armor $GPG_KEY > $TMPDIR/repo.key && \
+    rpm --import $TMPDIR/repo.key && \
+    rm -rf $TMPDIR && \
     # Now add the repository and install portus.
     zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
     zypper ref && \
