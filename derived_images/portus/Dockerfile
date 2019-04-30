@@ -11,26 +11,29 @@ RUN chmod +x /init && \
     # that case, we fall back to alternative key servers.
     TMPDIR=/tmp/build && \
     mkdir -m 0600 $TMPDIR && \
-    GPG_KEY=55a0b34d49501bb7ca474f5aa193fbb572174fc2 && \
-    found=''; \
-    for server in \
-      hkp://keys.gnupg.net:80 \
-      ha.pool.sks-keyservers.net \
-      hkp://keyserver.ubuntu.com:80 \
-      hkp://p80.pool.sks-keyservers.net:80 \
-      pgp.mit.edu \
-    ; do \
-      echo "Fetching GPG key $GPG_KEY from $server"; \
-      gpg --homedir $TMPDIR --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$GPG_KEY" && found=yes && break; \
+    for key in 55A0B34D49501BB7CA474F5AA193FBB572174FC2 \
+               A9EA39C49B6B9E93B6863F849AF0C9A20E9AF123; do \
+      found=''; \
+      for server in \
+        hkp://keys.gnupg.net:80 \
+        ha.pool.sks-keyservers.net \
+        hkp://keyserver.ubuntu.com:80 \
+        hkp://p80.pool.sks-keyservers.net:80 \
+        pgp.mit.edu \
+      ; do \
+        echo "Fetching GPG key $GPG_KEY from $server"; \
+        gpg --homedir $TMPDIR --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$key" && found=yes && break; \
+      done; \
+      test -z "$found" && echo >&2 "error: failed to fetch GPG key $key" && exit 1; \
+      gpg --homedir $TMPDIR --export --armor $key > $TMPDIR/repo.key && \
+      rpm --import $TMPDIR/repo.key ; \
     done; \
-    test -z "$found" && echo >&2 "error: failed to fetch GPG key $GPG_KEY" && exit 1; \
-    gpg --homedir $TMPDIR --export --armor $GPG_KEY > $TMPDIR/repo.key && \
-    rpm --import $TMPDIR/repo.key && \
     rm -rf $TMPDIR && \
     # Now add the repository and install portus.
-    zypper ar -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
-    zypper ref && \
-    zypper -n in --from portus ruby-common portus && \
+    zypper ar -f obs://devel:languages:ruby/openSUSE_Leap_15.0 ruby && \
+    zypper ar -p 1 -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
+    zypper ref -f && \
+    zypper -n in --from portus --details ruby-common portus && \
     zypper clean -a && \
     # Prepare the certificates directory.
     rm -rf /etc/pki/trust/anchors && \
