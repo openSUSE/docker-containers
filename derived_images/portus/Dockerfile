@@ -31,7 +31,7 @@ RUN chmod +x /init && \
     rm -rf $TMPDIR && \
     # Now add the repository and install portus.
     zypper ar -f obs://devel:languages:ruby/openSUSE_Leap_15.0 ruby && \
-    zypper ar -p 1 -f obs://Virtualization:containers:Portus/openSUSE_Leap_15.0 portus && \
+    zypper ar -p 1 -f obs://Virtualization:containers:Portus:2.5/openSUSE_Leap_15.0 portus && \
     zypper ref -f && \
     zypper -n in --from portus --details ruby-common portus && \
     zypper clean -a && \
